@@ -1,6 +1,6 @@
 # Para Summarizer
 
-This project is a text summarizer application built with React and Vite, and also packaged as a Chrome extension.
+This project is a AI text summarizer application built with React and Vite, and also packaged as a Chrome extension.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/Spectual/para-summarizer
 
 # Step 2: Navigate to the project directory.
 cd para-summarizer
