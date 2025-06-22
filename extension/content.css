@@ -1,0 +1,211 @@
+/* ParaSummarizer Chrome Extension Content Script Styles */
+
+/* Modal Styles */
+#para-summarizer-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10001;
+}
+
+.para-summarizer-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.para-summarizer-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid #475569;
+  overflow: hidden;
+}
+
+.para-summarizer-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+}
+
+.para-summarizer-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.para-summarizer-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.para-summarizer-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.para-summarizer-modal-body {
+  padding: 24px;
+  max-height: calc(80vh - 80px);
+  overflow-y: auto;
+}
+
+.para-summarizer-input-section,
+.para-summarizer-result-section {
+  margin-bottom: 20px;
+}
+
+.para-summarizer-input-section label,
+.para-summarizer-result-section label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#para-summarizer-text-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: #f1f5f9;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  font-family: inherit;
+}
+
+#para-summarizer-text-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.para-summarizer-primary-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.para-summarizer-primary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.para-summarizer-primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.para-summarizer-secondary-btn {
+  background: #475569;
+  color: #e2e8f0;
+  border: 1px solid #64748b;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.para-summarizer-secondary-btn:hover {
+  background: #64748b;
+  color: white;
+}
+
+.para-summarizer-summary-text {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 16px;
+  color: #f1f5f9;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Scrollbar styles */
+.para-summarizer-modal-body::-webkit-scrollbar,
+.para-summarizer-summary-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.para-summarizer-modal-body::-webkit-scrollbar-track,
+.para-summarizer-summary-text::-webkit-scrollbar-track {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.para-summarizer-modal-body::-webkit-scrollbar-thumb,
+.para-summarizer-summary-text::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 3px;
+}
+
+.para-summarizer-modal-body::-webkit-scrollbar-thumb:hover,
+.para-summarizer-summary-text::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .para-summarizer-modal-content {
+    width: 95%;
+    margin: 20px;
+    max-height: 90vh;
+  }
+  
+  .para-summarizer-modal-header {
+    padding: 16px 20px;
+  }
+  
+  .para-summarizer-modal-body {
+    padding: 20px;
+    max-height: calc(90vh - 70px);
+  }
+  
+  .para-summarizer-modal-header h3 {
+    font-size: 18px;
+  }
+} 
