@@ -6,13 +6,18 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Handle messages from content script and popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'summarizeText') {
+  if (request.type === 'summarize') {
+    if (!request.apiKey) {
+      sendResponse({ error: 'API key is missing.' });
+      return false;
+    }
+
     summarizeText(request.text, request.apiKey)
       .then(summary => {
-        sendResponse({ success: true, summary });
+        sendResponse({ summary: summary });
       })
       .catch(error => {
-        sendResponse({ success: false, error: error.message });
+        sendResponse({ error: error.message });
       });
     return true; // Keep the message channel open for async response
   }

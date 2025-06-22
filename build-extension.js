@@ -17,12 +17,6 @@ fs.copyFileSync('public/manifest.json', path.join(extensionDir, 'manifest.json')
 // Copy background script
 fs.copyFileSync('public/background.js', path.join(extensionDir, 'background.js'));
 
-// Copy content script
-fs.copyFileSync('public/content.js', path.join(extensionDir, 'content.js'));
-
-// Copy content CSS
-fs.copyFileSync('public/content.css', path.join(extensionDir, 'content.css'));
-
 // Copy built React app files
 const distDir = 'dist';
 if (fs.existsSync(distDir)) {
